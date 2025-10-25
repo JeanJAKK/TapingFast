@@ -13,6 +13,11 @@
          
          <main class="playground">
             <form class="mot_ou_phrase">
+               <div class="game-info">
+                    <div class="score">Score : <span id="score">0</span></div>
+                    <div class="timer">Temps restant : <span id="time">60</span>s</div>
+                </div> 
+                <div class="radio">
                 <label>
                     <input type="radio" name="choix" value="mot" checked>
                     Mot
@@ -22,13 +27,10 @@
                     <input type="radio" name="choix" value="phrase">
                     Phrase
                 </label>
-                <div class="game-info">
-                    <div class="score">Score : <span id="score">0</span></div>
-                    <div class="timer">Temps restant : <span id="time">60</span>s</div>
                 </div>
             </form>
              <p>taping fast</p>
-            <input type="text" name="userSaisi" id="userSaisi" autofocus="autofocus"><br>
+            <input type="text" name="userSaisi" id="userSaisi" autofocus="autofocus" placeholder="Saisir ici le texte"><br>
             <input type="submit" value="Valider" class="valider" title="Appuyer sur la touche Entrée pour valider">
          </main>
      </body>
