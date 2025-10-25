@@ -52,6 +52,7 @@ header {
   /* margin-left: 600px; */
   /* le margin auto c'est pour mettre le box au milleu peu importe la page */
   text-align: center;
+  transform: translateY(300px);
 }
 .box a{
   cursor: pointer;
@@ -61,13 +62,14 @@ header {
   border: none;
   border-radius: 30px;
   box-shadow: 0px 0px 15px rgba(127, 0, 255, 0.4), 0 0 25px rgba(0, 212, 255, 0.4);
-  height: 6vh;
+  height: 8vh;
   width: 12%;
   background: linear-gradient(135deg, #7f00ff, #00d4ff);
   text-align: center;
   color: #F8F8F8;
   transition: all 0.3s ease;
-  padding: 7px 30px;
+  padding: 13px 35px;
+  
 }
 
 .box a:hover {
@@ -80,8 +82,11 @@ p, h1 {
   text-align: center;
   font-size: 24px;
 }
-
+.body_p{
+  transform: translateX(600px);
+}
 h1 {
+  transform: translateX(-600px);
   margin-top: 60px;
   font-size: 4rem;
   color: #ffffff;
@@ -122,16 +127,16 @@ footer p {
   align-items: center;
 }
 #navig{
-  width: 20%;
+  width: 30%;
 }
 #navig ul{
   display: flex;
   justify-content: space-between;
   gap: 7px;
-  width: 60%;
+  width: 70%;
   li{
     list-style: none;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
   /* border: 1px solid #E94560;
   border-radius: 30px;
   box-shadow: 0px 0px 10px #0F3460;
@@ -151,7 +156,7 @@ footer p {
 
 #navig ul li a:hover{
  color: #00d4ff;
- font-size: 1.15rem;
+ font-size: 1.7rem;
  text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
  transition: all 0.3s ease;
 }
@@ -196,6 +201,12 @@ footer {
   border-radius: 30px; 
    height: 7vh;
    width: 40%;
+}
+input[type="radio"]{
+  cursor: pointer;
+  accent-color: cyan;
+  width: 15px;
+  height: 15px;
 }
 .game-info {
  margin-right: 10%;
@@ -259,4 +270,30 @@ input[type="text"]:focus {
   color: #F8F8F8;
   font-size: 20px;
 }
-
+/* .playground::before{
+  content: "";
+  position: absolute;
+  left: -10%;
+  width: 70px;
+  height: 100%;
+  background: rgba(52, 152, 219, 0.5);
+  transform: skewX(-20deg);
+  transition: all 2s ease;
+}
+.playground:hover::before{
+  left: 100%;
+} */
+.show_titre{
+  transform: translateX(0px);
+  transition: transform 1s ease-in-out;
+ 
+}
+.show_p{
+  transform: translateX(0px);
+  transition: transform 2s ease;
+}
+.show_btn{
+  transform: translateY(0px);
+  transition: transform 2s ease;
+}
+/* responive */
