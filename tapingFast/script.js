@@ -1,22 +1,52 @@
-let temps = 60
-let zero = 0
+const listePhrase = [
+  "Bonjour !",
+  "Ça va ?",
+  "Je suis prêt.",
+  "Allons-y !",
+  "C’est parti !",
+  "Pas de souci.",
+  "À demain.",
+  "Merci beaucoup.",
+  "Bonne chance !",
+  "Je t’écoute.",
+  "C’est génial !",
+  "Pas maintenant.",
+  "Très bien.",
+  "Je comprends.",
+  "C’est fini.",
+  "On y va ?",
+  "Je suis là.",
+  "Pas mal.",
+  "D’accord.",
+  "À plus tard."
+]
 
-const titre = document.querySelector("h1");
-const paragraphe = document.querySelector(".body_p")
-const btn = document.querySelector(".box")
+const listeMot = [
+  "chat", "chien", "maison", "voiture", "soleil", "lune", "arbre", "fleur", "eau", "feu",
+  "air", "terre", "livre", "stylo", "table", "chaise", "porte", "fenêtre", "mur", "toit",
+  "route", "chemin", "rue", "ville", "campagne", "montagne", "rivière", "lac", "océan", "plage",
+  "neige", "pluie", "vent", "orage", "nuage", "ciel", "étoile", "temps", "jour", "nuit"
+];
 
-const compteur = document.getElementById("time")
-let secondeRestante = setInterval(() => {
-    temps --;
-    compteur.textContent = temps;
-    if (temps < 0) {
-        compteur.textContent = zero;
+const saisiUser = document.querySelector("#userSaisi") //recupère le champs de saisi
+
+const compteur = document.getElementById("time")     //recupère le span d' id time
+let temps = 60               // contenu de l'elment d'id time
+
+const proposition = document.getElementById("proposition")
+let aSaisir = "taping fast"         //contenu de l'element d'id prposition
+
+let secondeRestante = function(){setInterval(() => {
+  if (temps > 0){
+    temps --
+    compteur.textContent = temps
+    }else{
+      compteur.textContent = 0
     }
-}, 1000);
+}, 1000)} 
 
-// animation au chargement de la page
-window.addEventListener('load', () => {
-    titre.classList.add("show_titre");
-    paragraphe.classList.add("show_p");
-    btn.classList.add("show_btn")
-})
+// demarrer le jeu après un click dans le champs de saisi
+
+  saisiUser.addEventListener("click", function () {
+    secondeRestante()
+  })
