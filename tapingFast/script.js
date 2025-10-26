@@ -18,7 +18,15 @@ const listeMot =[
   "route", "chemin", "rue", "ville", "campagne", "montagne", "rivière", "lac", "océan", "plage",
   "neige", "pluie", "vent", "orage", "nuage", "ciel", "étoile", "temps", "jour", "nuit"
 ];
+const titre = document.querySelector("h1");
+const paragraphe = document.querySelector(".body_p")
+const btn = document.querySelector(".box")
 
+window.addEventListener('load', () => {
+    titre.classList.add("show_titre");
+    paragraphe.classList.add("show_p");
+    btn.classList.add("show_btn")
+})
 // Éléments DOM
 const proposition = document.getElementById("proposition");
 const saisiUser = document.getElementById("userSaisi");
