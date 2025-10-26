@@ -105,7 +105,6 @@ saisiUser.addEventListener("input", function () {
 
 // Démarrage du jeu
 saisiUser.addEventListener("click", function () {
-  alert("Click sur OK pour commencer")
   scheduler(); // à appeler une seule fois
   secondeRestante();
   if (choixMot.checked) {
