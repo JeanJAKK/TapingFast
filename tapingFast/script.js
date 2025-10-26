@@ -88,7 +88,7 @@ function scheduler() {
 
 // Vérification de la saisie
 saisiUser.addEventListener("input", function () {
-  if (saisiUser.value.trim() === proposition.textContent.trim()) {
+  if (saisiUser.value.trim().toLower.Case() === proposition.textContent.trim()) {
     if (choixMot.checked) {
        score++;
        InitialScore.textContent = score;
