@@ -81,22 +81,17 @@ function scheduler() {
 // Vérification de la saisie
 saisiUser.addEventListener("input", function () {
   if (saisiUser.value.trim() === proposition.textContent.trim()) {
-    score++;
-    InitialScore.textContent = score;
-    saisiUser.value = "";
     if (choixMot.checked) {
+       score++;
+       InitialScore.textContent = score;
+       saisiUser.value = ""
       saisiDemanderMot();
     } else if (choixPhrase.checked) {
+        score+=3;
+       InitialScore.textContent = score;
+       saisiUser.value = ""
       saisiDemanderPhrase();
     }
-  }
-});saisiUser.addEventListener("click", function () {
-  scheduler(); // à appeler une seule fois
-  secondeRestante();
-  if (choixMot.checked) {
-    saisiDemanderMot();
-  } else if (choixPhrase.checked) {
-    saisiDemanderPhrase();
   }
 });
 
