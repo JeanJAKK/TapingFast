@@ -11,6 +11,7 @@ let secondeRestante = setInterval(() => {
     compteur.textContent = temps;
     if (temps < 0) {
         compteur.textContent = zero;
+        
     }
 }, 1000);
 
