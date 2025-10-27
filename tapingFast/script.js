@@ -86,22 +86,35 @@ function scheduler() {
   });
 }
 
-// Vérification de la saisie
+// Fonction de normalisation casse ...
+function normalizeText(txt) {
+  return txt
+    .replace(/[’‘`]/g, "'")    // uniformise les apostrophes
+    .replace(/\s+/g, ' ')       // remplace plusieurs espaces par un seul
+    .trim()                     // supprime espaces début/fin
+    .toLowerCase();             // passe en minuscule
+}
+
+// Verification saisi
 saisiUser.addEventListener("input", function () {
-  if (saisiUser.value.trim().toLowerCase() === proposition.textContent.trim()) {
+  const saisie = normalizeText(saisiUser.value);
+  const attendu = normalizeText(proposition.textContent);
+
+  if (saisie === attendu) {
     if (choixMot.checked) {
-       score++;
-       InitialScore.textContent = score;
-       saisiUser.value = ""
+      score++;
+      InitialScore.textContent = score;
+      saisiUser.value = "";
       saisiDemanderMot();
     } else if (choixPhrase.checked) {
-        score+=3;
-       InitialScore.textContent = score;
-       saisiUser.value = ""
+      score += 3;
+      InitialScore.textContent = score;
+      saisiUser.value = "";
       saisiDemanderPhrase();
     }
   }
 });
+
 
 // Démarrage du jeu
 saisiUser.addEventListener("click", function () {
