@@ -471,7 +471,6 @@ h1 {
   }
 
   h1 {
-    font-size: 2rem;
     margin-top: 120px;
     text-align: center;
   }
@@ -515,12 +514,12 @@ h1 {
 
   .body_p{
   transform: translateX(600px);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
   h1 {
   transform: translateX(-600px);
   margin-top: 60px;
-  font-size: 3.4rem;
+  font-size: 3.0rem;
   color: #ffffff;
   text-shadow: 0 0 10px #7f00ff, 0 0 20px #00d4ff, 0 0 40px #7f00ff;
   animation: glow 2s ease-in-out infinite alternate;
