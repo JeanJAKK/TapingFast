@@ -1,22 +1,22 @@
 const listePhrase = [
   "Bonjour !","Ça va ?","Je suis prêt.","Allons-y !","C’est parti !","Pas de souci.","À demain.","Merci beaucoup.",
   "Bonne chance !","Je t’écoute.","C’est génial !","Pas maintenant.","Très bien.","Je comprends.","C’est fini.",
-  "On y va ?","Je suis là.","Pas mal.","D’accord.","À plus tard.","C’est bon.","Je reviens.","Pas encore.",
+  "On y va ?","Je suis là.","Pas mal.","D’accord.","À plus tard.","C’est bon.","Je reviens.","Pas encore.", "Formidable !",
   "Tu peux y aller.","Je suis prêt.","On commence.","C’est trop tard.","Tu es rapide !","Ne t’inquiète pas.",
   "Je suis content.", "On continue ?", "Tu as réussi.","C’est ton tour.","Je suis occupé.","On fait une pause.",
-  "Tu veux jouer ?","C’est amusant.","Je suis fatigué.","Tu es doué.","On recommence."
+  "Tu veux jouer ?","C’est amusant.","Je suis fatigué.","Tu es doué.","On recommence.", "On y est.", "Naturellement !"
 ];
 
 const listeMot =[
-  "lampe", "rideau", "coussin", "miroir", "frigo", "four", "horloge", "tapis", "étagère", "placard",
+  "lampe", "rideau", "coussin", "miroir", "frigo", "four", "horloge", "tapis", "étagère", "placard", "courage",
   "forêt", "désert", "volcan", "cascade", "prairie", "glacier", "grotte", "falaise", "sable", "racine",
   "robot", "satellite", "laser", "circuit", "pixel", "clavier", "écran", "moteur", "algorithme", "réseau",
-  "rouge", "bleu", "vert", "jaune", "violet", "doux", "froid", "chaud", "brillant", "sombre",
-  "chat", "chien", "oiseau", "poisson", "cheval", "lion", "tigre", "singe", "éléphant", "renard",
-  "chat", "chien", "maison", "voiture", "soleil", "lune", "arbre", "fleur", "eau", "feu",
-  "air", "terre", "livre", "stylo", "table", "chaise", "porte", "fenêtre", "mur", "toit",
-  "route", "chemin", "rue", "ville", "campagne", "montagne", "rivière", "lac", "océan", "plage",
-  "neige", "pluie", "vent", "orage", "nuage", "ciel", "étoile", "temps", "jour", "nuit"
+  "rouge", "bleu", "vert", "jaune", "violet", "doux", "froid", "chaud", "brillant", "sombre", "entropie", "gloire",
+  "chat", "chien", "oiseau", "poisson", "cheval", "lion", "tigre", "singe", "éléphant", "renard", "miséricorde",
+  "chat", "chien", "maison", "voiture", "soleil", "lune", "arbre", "fleur", "eau", "feu", "ambition", "victoire",
+  "air", "terre", "livre", "stylo", "table", "chaise", "porte", "fenêtre", "mur", "toit", "fortune", "richesse",
+  "route", "chemin", "rue", "ville", "campagne", "montagne", "rivière", "lac", "océan", "plage", "pouvoir", "amour",
+  "neige", "pluie", "vent", "orage", "nuage", "ciel", "étoile", "temps", "jour", "nuit", "espoir", "processus", "syntropie"
 ];
 const titre = document.querySelector("h1");
 const paragraphe = document.querySelector(".body_p")
@@ -45,8 +45,10 @@ let indexPhrase = 0;
 // Décompte du temps
 function secondeRestante() {
   clearInterval(timer); // évite les doublons
+  score = 0;
   temps = 60;
   compteur.textContent = temps;
+  InitialScore.textContent = 0;
 
   timer = setInterval(() => {
     if (temps > 0) {
@@ -86,35 +88,22 @@ function scheduler() {
   });
 }
 
-// Fonction de normalisation casse ...
-function normalizeText(txt) {
-  return txt
-    .replace(/[’‘`]/g, "'")    // uniformise les apostrophes
-    .replace(/\s+/g, ' ')       // remplace plusieurs espaces par un seul
-    .trim()                     // supprime espaces début/fin
-    .toLowerCase();             // passe en minuscule
-}
-
-// Verification saisi
+// Vérification de la saisie
 saisiUser.addEventListener("input", function () {
-  const saisie = normalizeText(saisiUser.value);
-  const attendu = normalizeText(proposition.textContent);
-
-  if (saisie === attendu) {
+  if (saisiUser.value.trim() === proposition.textContent.trim()) {
     if (choixMot.checked) {
-      score++;
-      InitialScore.textContent = score;
-      saisiUser.value = "";
+       score++;
+       InitialScore.textContent = score;
+       saisiUser.value = ""
       saisiDemanderMot();
     } else if (choixPhrase.checked) {
-      score += 3;
-      InitialScore.textContent = score;
-      saisiUser.value = "";
+        score+=3;
+       InitialScore.textContent = score;
+       saisiUser.value = ""
       saisiDemanderPhrase();
     }
   }
 });
-
 
 // Démarrage du jeu
 saisiUser.addEventListener("click", function () {
