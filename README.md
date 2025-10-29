@@ -23,17 +23,17 @@
 
     Fichiers audio et icônes pixel personnalisés
 
-📁 Structure du projet
-TapingFast/
-├── index.html
-├── style.css
-├── script.js
-├── media.js
-├── assets/
-│   ├── favicon.png
-│   ├── TunePocket-Halloween-Funk-Jam.mp3
-│   └── icons/
-└── README.md
+    📁 Structure du projet
+    TapingFast/
+    ├── index.html
+    ├── style.css
+    ├── script.js
+    ├── media.js
+    ├── assets/
+    │   ├── favicon.png
+    │   ├── TunePocket-Halloween-Funk-Jam.mp3
+    │   └── icons/
+    └── README.md
 
 🧪 À venir
 
