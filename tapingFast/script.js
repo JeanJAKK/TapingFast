@@ -7,7 +7,7 @@ const listePhrase = [
   "Tu veux jouer ?","C’est amusant.","Je suis fatigué.","Tu es doué.","On recommence.", "On y est.", "Naturellement !"
 ];
 
-const listeMot =[
+const listeMot = [
   "lampe", "rideau", "coussin", "miroir", "frigo", "four", "horloge", "tapis", "étagère", "placard", "courage",
   "forêt", "désert", "volcan", "cascade", "prairie", "glacier", "grotte", "falaise", "sable", "racine",
   "robot", "satellite", "laser", "circuit", "pixel", "clavier", "écran", "moteur", "algorithme", "réseau",
@@ -19,8 +19,8 @@ const listeMot =[
   "neige", "pluie", "vent", "orage", "nuage", "ciel", "étoile", "temps", "jour", "nuit", "espoir", "processus", "syntropie"
 ];
 const titre = document.querySelector("h1");
-const paragraphe = document.querySelector(".body_p")
-const btn = document.querySelector(".box")
+const paragraphe = document.querySelector(".body_p");
+const btn = document.querySelector(".box");
 
 window.addEventListener('load', () => {
     titre.classList.add("show_titre");
@@ -35,6 +35,8 @@ const InitialScore = document.getElementById("score");
 const choixMot = document.querySelector('input[value="mot"]');
 const choixPhrase = document.querySelector('input[value="phrase"]');
 const radios = document.querySelectorAll('input[name="choix"]');
+document.getElementById('playground').classList.add('fade-in');
+
 
 let score = 0;
 let temps = 60;
@@ -55,13 +57,35 @@ function secondeRestante() {
       temps--;
       compteur.textContent = temps;
     } else {
-      clearInterval(timer);
+      //clearInterval(temps);
       compteur.textContent = "0";
-      alert("Temps écoulé ! Score : " + score);
+      document.getElementById('playground').title =  "";
+      document.getElementById('playground').innerHTML =  `
+          <div style="
+            font-size: 2rem;
+            color: #fff;
+            text-align: center;
+            background-color: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            margin: 120px auto 50px auto;
+            max-width: 400px;
+            
+          ">
+             <br>
+            ⏱️ Temps écoulé !<br>
+            <span style="font-weight: bold; font-size: 2.5rem;">Score : ${score}</span>
+            <br> <br>
+            <a href="jouer.html">
+            <input type="button" value="Recommencer" id="valider" title="Clicker pour recommencer">
+            </a>
+          </div>`
       saisiUser.disabled = true;
     }
   }, 1000);
 }
+
 
 // Proposer un mot
 function saisiDemanderMot() {

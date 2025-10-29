@@ -1,4 +1,44 @@
 /* Commun aux deux pages */
+#media{       /*pour bouttons multimédia*/
+  margin-top: 8%;
+  position: fixed;
+  bottom: 0.1rem;
+  left: 0.1rem;
+  display: flex;
+  gap: 10px;
+  background-color: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  /*padding: 6px 10px;*/
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(62, 140, 228, 0.4);
+  z-index: 0;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+#media button,
+#media input[type="range"] {
+  background-color: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#media input[type="range"] {
+  width: 100px;
+}
+
+
 body {
   color: #f2f2f2;
   height: 100vh;
@@ -424,9 +464,24 @@ h1 {
 }
 
 @media screen and (max-width: 480px) {
-  
-  header {
-    padding: 8px  6px;
+
+  #media {
+    top: 2.5rem;
+    left: 0rem;
+    bottom: 1rem;
+    gap: 6px;
+    height: 25px;
+    background-color: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  }
+
+  #media button,
+  #media input[type="range"] {
+
+  background-color: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+}
+
+header {
+    padding: 8px  6px;transform: rotateX(-50%);
     height: 10%;
   }
   #logo {
@@ -518,7 +573,7 @@ h1 {
 }
   h1 {
   transform: translateX(-600px);
-  margin-top: 60px;
+  margin-top:90px;
   font-size: 3.0rem;
   color: #ffffff;
   text-shadow: 0 0 10px #7f00ff, 0 0 20px #00d4ff, 0 0 40px #7f00ff;
