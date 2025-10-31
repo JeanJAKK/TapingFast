@@ -44,6 +44,18 @@ let timer;
 let indexMot = 0;
 let indexPhrase = 0;
 
+
+
+function normalizeText(txt) {
+    txt = txt.replace(/[’‘`]/g, "'");    // uniformise les apostrophes
+    txt = txt.replace(/\s+/g, ' ');       // remplace plusieurs espaces par un seul
+    txt = txt.trim();                     // supprime espaces début/fin
+    txt = txt.toLowerCase();             // passe en minuscule
+    
+    return txt;
+}
+
+
 // Décompte du temps
 function secondeRestante() {
   clearInterval(timer); // évite les doublons
@@ -114,7 +126,11 @@ function scheduler() {
 
 // Vérification de la saisie
 saisiUser.addEventListener("input", function () {
-  if (saisiUser.value.trim() === proposition.textContent.trim()) {
+
+  let saisie = normalizeText(saisiUser.value);
+  let attendu = normalizeText(proposition.textContent);
+
+  if (saisie === attendu) {
     if (choixMot.checked) {
        score++;
        InitialScore.textContent = score;
@@ -126,8 +142,8 @@ saisiUser.addEventListener("input", function () {
        saisiUser.value = ""
       saisiDemanderPhrase();
     }
-  }
-});
+  }}
+);
 
 // Démarrage du jeu
 saisiUser.addEventListener("click", function () {
